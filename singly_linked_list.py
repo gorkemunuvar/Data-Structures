@@ -46,6 +46,43 @@ class LinkedList:
 
             curr_node = curr_node.next
 
+    def delete_node(self, data):
+        curr_node = self.head
+
+        if curr_node and curr_node.data == data:
+            self.head = curr_node.next
+            del curr_node
+            return
+
+        while curr_node.next and curr_node.next.data != data:
+            curr_node = curr_node.next
+
+        if curr_node.next is None:
+            print("Couldn't find the element on the list.")
+            return
+
+        temp_node = curr_node.next
+        curr_node.next = temp_node.next
+        del temp_node
+
+    def delete_node_at_position(self, position):
+        curr_node = self.head
+
+        if position == 0 and self.head != None:
+            self.head = curr_node.next
+            del curr_node
+            return
+
+        counter = 0
+        prev_node = None
+        while curr_node and counter != position:
+            prev_node = curr_node
+            curr_node = curr_node.next
+            counter = counter + 1
+
+        prev_node.next = curr_node.next
+        del curr_node
+
 
 llist = LinkedList()
 
@@ -57,5 +94,10 @@ llist.append("D")
 llist.prepend("E")
 
 llist.insert_after_node("C", "Ç")
+
+llist.delete_node("K")
+llist.delete_node("Ç")
+
+llist.delete_node_at_position(2)
 
 llist.print_list()
