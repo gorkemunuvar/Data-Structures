@@ -12,6 +12,7 @@
 # 4          7
 # 5          14
 
+# O(N)
 def utopian_tree(n):
     height = 1
     is_spring = True
@@ -32,3 +33,4 @@ def utopian_tree(n):
 
 
 utopian_tree(1)
+utopian_tree(5)
