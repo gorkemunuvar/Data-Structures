@@ -19,7 +19,6 @@ class BalancedStack(object):
     def __init__(self):
         self.items = []
 
-    # []({})
     def push(self, item):
         if not self.is_empty():
             if reversed_par(item) == self.peek():
